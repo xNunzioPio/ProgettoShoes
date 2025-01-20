@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="CSS/style2.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+</head>
+<body>
+	<img class="wave" src="img/wave.png">
+	<div class="container">
+		<div class="img">
+			<img src="img/bg.svg">
+		</div>
+		<div class="login-content">
+			<form id="login" action="LoginServlet" method="post" onsubmit="event.preventDefault(); validate(this)">
+				<img src="img/avatar.svg">
+				<h2 class="title">Welcome</h2>
+                <span id="spanEmail">&nbsp;</span>
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div">
+           		   		<input type="text" name="email" class="input" placeholder="Email">
+           		   </div>
+           		</div>
+           		<div class="input-div pass">
+           		   <div class="i"> 
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<input type="password" name="pass" class="input" placeholder="Password">
+            	   </div>
+            	</div>
+            	<br><a href="reg.jsp"><p class="nonRegistrato">Registrati</p></a>
+            	<input type="submit" class="btn" value="Login">
+            </form>
+        </div>
+    </div>
+</body>
+
+<script>
+
+function checkEmail(inputtxt) {
+	var email = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	if(inputtxt.value.match(email)) 
+		return true;
+	
+	return false;	
+}
+
+function checkPassword(inputtxt) {
+	var pass=/^[A-Za-z0-9.]{5,}$/;
+	if(inputtxt.value.match(pass)) 
+		return true;
+	
+	return false;
+}
+
+function validate(obj) {	
+	var valid = true;	
+	
+	var email = document.getElementsByName("email")[0];
+	if(!checkEmail(email)) {
+		valid = false;
+		document.getElementById("spanEmail").innerHTML = "Email o Password errata!";
+		email.classList.add("error");
+	} else {
+		document.getElementById("spanEmail").innerHTML="&nbsp;";
+		email.classList.remove("error");
+	}
+	
+	var pass = document.getElementsByName("pass")[0];
+	if(!checkPassword(pass)) {
+		valid = false;
+		pass.classList.add("error");
+	} else {
+		pass.classList.remove("error");
+	}
+	
+	
+	
+	if(valid) obj.submit();
+}
+
+
+
+
+</script>
+
+</html>

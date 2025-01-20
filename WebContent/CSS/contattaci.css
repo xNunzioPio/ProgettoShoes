@@ -1,0 +1,60 @@
+
+.cont{
+	margin-left:10%;
+	margin-bottom:20px;
+	margin-top:20px;
+}    
+h1,h2{
+	color:rgb(57, 57, 114);
+}
+h2{
+	margin-top:10px;
+	margin-bottom:5px;
+}
+
+input{
+	height:25px;
+	border-radius: 3px;
+    border-style:solid;
+}
+.btn-invia{
+	margin-top:5px;
+  	border: none;       /* nessun bordo */
+  	color: #fff;        /* colore del testo    */
+  	font-weight: bold;  /* testo in grassetto  */
+  	padding: 0;         /* padding             */
+  	height:40px;       /* altezza             */
+  	width: 110px;  
+  	background-color:#d12e05;
+  	border-radius:8px;
+}
+    
+    
+@media screen and (max-width:1000px) {
+        body{
+            float: left;
+            clear: both;
+            width: 100%;
+        }
+    }
+    @media screen and (max-width:540px) {
+        body{
+            float: left;
+            clear: both;
+            width: 30%;
+        }
+        textarea{
+            width: 200px;
+        }
+    }
+    @media screen and (max-width:200px) {
+        body{
+            float: left;
+            clear: both;
+            width: 10%;
+        }
+        textarea,input{
+            width: 150px;
+        }
+    }
+    
